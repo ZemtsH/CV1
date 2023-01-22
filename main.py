@@ -62,17 +62,15 @@ def action(path, func, size=5, show=True):
     return all_time, all_time / frame_sum
 
 if __name__ == "__main__":
-    video_time, frame_time = action("video.mp4", cv2.medianBlur, size=7, show=False)
+    video_time, frame_time = action("video.mp4", cv2.medianBlur, size=7, show=True)
     print("OpenCV: время обработки кадра:", frame_time)
     print("OpenCV: время обработки видео:", video_time)
 
-    video_time, frame_time = action("video.mp4", median_filter, size=7,
-                                                     show=False)
+    video_time, frame_time = action("video.mp4", median_filter, size=7, show=True)
     print("Нативно: время обработки кадра:", frame_time)
     print("Нативно: время обработки видео:", video_time)
 
-    video_time, frame_time = action("video.mp4", median_filter_speed, size=7,
-                                                     show=False)
+    video_time, frame_time = action("video.mp4", median_filter_speed, size=7, show=True)
     print("numba: время обработки кадра:", frame_time)
     print("numba: время обработки видео:", video_time)
 
